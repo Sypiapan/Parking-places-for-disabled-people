@@ -1,0 +1,40 @@
+{% extends "basic.html" %}
+{% block places %}
+
+  <div class ="container px-5 py-5 bg-secondary-subtle">
+
+    <h1 class = "mt-5 fs-2 text-center">Wszystkie miejsca parkingowych dla niepełnosprawnych w Warszawie</h1>
+    <div class="mt-5">
+      <a href="./" class="btn btn-primary">Strona główna</a>
+    </div>
+<div>
+    <label  class="form-label mt-3">Lista wszystkich miejsc parkingowych dla niepełnosprawnych w Warszawie</label>
+{% if context.places %}
+      <table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">Ulica</th>
+      <th scope="col">Numer ulicy</th>
+      <th scope="col">Ilośc miejsc parkingowych</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for place in context.places %}
+      <tr>
+      <td>{{place.street}}</td>
+      <td>{{place.street_number}}</td>
+      <td>{{place.number_of_places}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+    {% else %}
+<p>Brak miejsc w bazie!</p>
+{% endif %}
+  </div>
+
+  </div>
+{% endblock %}
+
+
+

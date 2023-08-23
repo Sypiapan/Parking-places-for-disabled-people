@@ -1,0 +1,37 @@
+{% extends "basic.html" %}
+{% block history %}
+
+  <div class ="container px-5 py-5 bg-secondary-subtle">
+
+    <h1 class = "mt-5 fs-2 text-center">Historia zapytań</h1>
+    <div class="mt-5">
+      <a href="./" class="btn btn-primary">Strona główna</a>
+    </div>
+<div>
+    <label  class="form-label mt-3">Historia dotychczasowych  zapytań o miejsca parkingowe dla niepełnosprawnych w Warszawie</label>
+{% if context.history %}
+      <table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">Ulica</th>
+      <th scope="col">Numer ulicy</th>
+      <th scope="col">Ilośc miejsc parkingowych</th>
+    </tr>
+  </thead>
+  <tbody>
+     {% for history in context.history %}
+      <tr>
+      <td>{{history.street}}</td>
+      <td>{{history.street_number}}</td>
+      <td>{{history.number_of_places}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+    {% else %}
+<p>Brak historii zapytań!</p>
+{% endif %}
+  </div>
+
+  </div>
+{% endblock %}

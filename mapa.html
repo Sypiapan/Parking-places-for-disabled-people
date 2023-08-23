@@ -1,0 +1,27 @@
+<!doctype html>
+
+
+    <html>
+
+    <iframe id="myIFrame" width="1900px" height="1200px" src="/mapa2" frameborder="0"></iframe>
+    <script type="text/javascript">
+    var resizeIFrame = function(event) {
+        var loc = document.location;
+        if (event.origin != loc.protocol + '//' + loc.host) return;
+
+        var myIFrame = document.getElementById('myIFrame');
+        if (myIFrame) {
+            myIFrame.style.height = event.data.h + "px";
+            myIFrame.style.width  = event.data.w + "px";
+        }
+    };
+    if (window.addEventListener) {
+        window.addEventListener("message", resizeIFrame, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onmessage", resizeIFrame);
+    }
+    </script>
+
+
+
+    </html>
